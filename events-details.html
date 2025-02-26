@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Event Details - EastRandTix</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const event = urlParams.get("event");
+            const eventDetails = {
+                concert: {
+                    title: "Summer Music Festival",
+                    description: "Join us for an unforgettable night of music and fun.",
+                    image: "images/concert.jpg",
+                    date: "March 15, 2025",
+                    time: "7:00 PM - 11:30 PM",
+                    venue: "East Rand Stadium",
+                    tickets: [
+                        { type: "General", price: "$50" },
+                        { type: "VIP", price: "$100" },
+                        { type: "Backstage Pass", price: "$150" }
+                    ]
+                },
+                theater: {
+                    title: "Broadway Show",
+                    description: "Experience the magic of Broadway.",
+                    image: "images/theater.jpg",
+                    date: "April 10, 2025",
+                    time: "6:30 PM - 10:00 PM",
+                    venue: "East Rand Theater",
+                    tickets: [
+                        { type: "Standard", price: "$80" },
+                        { type: "Premium", price: "$150" }
+                    ]
+                }
+            };
+            
+            const selectedEvent = eventDetails[event] || eventDetails["concert"];
+            document.getElementById("event-title").textContent = selectedEvent.title;
+            document.getElementById("event-description").textContent = selectedEvent.description;
+            document.getElementById("event-image").src = selectedEvent.image;
+            document.getElementById("event-date").innerHTML = `<strong>Date:</strong> ${selectedEvent.date}<br><strong>Time:</strong> ${selectedEvent.time}`;
+            document.getElementById("event-venue").innerHTML = `<strong>Venue:</strong> ${selectedEvent.venue}`;
+            
+            const ticketSelect = document.getElementById("ticket");
+            ticketSelect.innerHTML = "";
+            selectedEvent.tickets.forEach(ticket => {
+                const option = document.createElement("option");
+                option.value = ticket.type.toLowerCase();
+                option.textContent = `${ticket.type} - ${ticket.price}`;
+                ticketSelect.appendChild(option);
+            });
+        });
+    </script>
+</head>
+<body class="landing is-preload">
+    <div id="page-wrapper">
+        
+        <!-- Header -->
+        <header id="header" class="alt">
+            <h1><a href="index.html">EastRandTix</a></h1>
+            <nav id="nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="sign-up.html" class="button">Sign Up</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <!-- Banner -->
+        <section id="banner">
+            <h2 id="event-title">Loading...</h2>
+            <p id="event-description">Loading...</p>
+        </section>
+        
+        <!-- Main -->
+        <section id="main" class="container">
+            <section class="box special">
+                <header class="major">
+                    <h2>Event Details</h2>
+                </header>
+                <span class="image featured"><img id="event-image" src="" alt="Event Image" /></span>
+            </section>
+            
+            <section class="box special features">
+                <div class="features-row">
+                    <section>
+                        <h3>Date & Time</h3>
+                        <p id="event-date">Loading...</p>
+                    </section>
+                    <section>
+                        <h3>Location</h3>
+                        <p id="event-venue">Loading...</p>
+                    </section>
+                </div>
+            </section>
+            
+            <section class="box special">
+                <h3>Choose Your Ticket</h3>
+                <form action="checkout.html" method="GET">
+                    <label for="ticket">Ticket Type:</label>
+                    <select name="ticket" id="ticket"></select>
+                    <br><br>
+                    <input type="submit" value="Buy Now" class="button primary" />
+                </form>
+            </section>
+        </section>
+        
+        <!-- CTA -->
+        <section id="cta">
+            <h2>Stay Updated</h2>
+            <p>Sign up for our newsletter to get the latest event updates and exclusive offers.</p>
+            <form>
+                <div class="row gtr-50 gtr-uniform">
+                    <div class="col-8 col-12-mobilep">
+                        <input type="email" name="email" id="email" placeholder="Email Address" />
+                    </div>
+                    <div class="col-4 col-12-mobilep">
+                        <input type="submit" value="Sign Up" class="fit" />
+                    </div>
+                </div>
+            </form>
+        </section>
+        
+        <!-- Footer -->
+        <footer id="footer">
+            <ul class="icons">
+                <li><a href="#" class="icon brands fa-twitter"></a></li>
+                <li><a href="#" class="icon brands fa-facebook-f"></a></li>
+                <li><a href="#" class="icon brands fa-instagram"></a></li>
+            </ul>
+            <ul class="copyright">
+                <li>&copy; EastRandTix. All rights reserved.</li>
+            </ul>
+        </footer>
+    </div>
+</body>
+</html>

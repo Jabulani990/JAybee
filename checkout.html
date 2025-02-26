@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Checkout - EastRandTix</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body class="landing is-preload">
+  <div id="page-wrapper">
+    <div class="wrapper">
+      <div class="container">
+        <header class="major">
+          <h2>Checkout</h2>
+        </header>
+
+        <form method="post" action="process-payment.php">
+          <div class="row gtr-50">
+            <div class="col-12">
+              <h3>Customer Information</h3>
+            </div>
+            <div class="col-6 col-12-mobile">
+              <label for="name">Full Name</label>
+              <input type="text" name="name" id="name" required />
+            </div>
+            <div class="col-6 col-12-mobile">
+              <label for="email">Email</label>
+              <input type="email" name="email" id="email" required />
+            </div>
+
+            <div class="col-12">
+              <h3>Ticket Details</h3>
+            </div>
+            <div class="col-12">
+              <label for="tickets">Number of Tickets</label>
+              <input type="number" name="tickets" id="tickets" min="1" required />
+            </div>
+
+            <div class="col-12">
+              <h3>Payment Information</h3>
+            </div>
+            <div class="col-12">
+              <label for="card">Card Number</label>
+              <input type="text" name="card" id="card" required />
+            </div>
+            <div class="col-12">
+              <button type="submit" class="button primary">Complete Purchase</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

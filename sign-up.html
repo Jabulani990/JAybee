@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sign Up / Log In</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <style>
+        /* General Styles */
+        body {
+            background: #f0f0f0;
+            font-family: 'Open Sans', sans-serif;
+            display: flex; /* Center vertically and horizontally */
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Ensure full viewport height */
+            margin: 0; /* Remove default margins */
+            background-image: url('images/event-banner.jpg'); /* Replace with your banner image URL */
+            background-size: cover; /* Or contain, depending on your needs */
+            background-position: center; /* Adjust positioning as needed */
+            /* Add an overlay if the background is too bright */
+            position: relative; /* Needed for overlay positioning */
+        }
+
+      .container {
+            width: 100%; /* Take full width */
+            height: 100vh; /* Take full height */
+            background: #fff;
+            padding: 30px; /* Increased padding */
+            border-radius: 0; /* Remove rounded corners */
+            box-shadow: none; /* Remove box shadow */
+            display: flex; /* Use flexbox for vertical centering */
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1; /* Bring the container above the overlay */
+            background-color: rgba(255, 255, 255, 0.85); /* Slightly transparent white for the form background */
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px; /* Added margin */
+        }
+
+        /* Form Styles */
+        label {
+            display: block;
+            margin-bottom: 8px; /* Increased margin */
+            color: #555;
+            font-weight: 600; /* Slightly bolder labels */
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: calc(100% - 22px); /* Adjusted for padding and border */
+            padding: 12px; /* Increased padding */
+            margin-bottom: 20px; /* Increased margin */
+            border: 1px solid #ddd;
+            border-radius: 5px; /* Slightly more rounded corners */
+            box-sizing: border-box;
+            font-size: 16px;
+            transition: border-color 0.3s ease; /* Smooth border transition */
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            border-color: #4CAF50; /* Highlight on focus */
+            outline: none; /* Remove default outline */
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2); /* Subtle shadow on focus */
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease; /* Smooth background transition */
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Switch Form Link */
+      .switch-form {
+            text-align: center;
+            margin-top: 20px; /* Increased margin */
+        }
+
+      .switch-form a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease; /* Smooth color transition */
+        }
+
+      .switch-form a:hover {
+            color: #0056b3; /* Darker blue on hover */
+        }
+
+      .error-message {
+            color: red;
+            margin-top: 15px; /* Increased margin */
+            text-align: center;
+        }
+
+        /* Responsive Design (Example) */
+        @media (max-width: 450px) {
+          .container {
+                width: 90%; /* Make container full width on smaller screens */
+                padding: 20px;
+            }
+        }
+
+        /* Banner Background */
+        body::before { /* Overlay */
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4); /* Adjust opacity for desired dimming */
+        }
+        h2, label, input, button,.switch-form {
+          color: #333; /* or any color you want for the form elements */
+        }
+
+        /* Adjust form element spacing as needed */
+        form {
+            width: 400px; /* Or a percentage, e.g., 80% */
+            max-width: 90%; /* Limit width on very large screens */
+        }
+    </style>
+</head>
+<body class="landing is-preload">
+    
+    <div id="page-wrapper">
+        <header id="header" class="alt">
+            <h1><a href="index.html">TicketHub</a></h1>
+            <nav id="nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="generic.html">Events</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#">Sign Up</a></li> 
+                </ul>
+            </nav>
+        </header>
+
+        <div class="container">
+            <h2>Sign Up</h2>
+            <div id="error-message" class="error-message"></div>
+
+            <form id="signup-form">
+                <label for="signup-username">Username:</label>
+                <input type="text" id="signup-username" name="signup-username" required>
+
+                <label for="signup-email">Email:</label>
+                <input type="email" id="signup-email" name="signup-email" required>
+
+                <label for="signup-password">Password:</label>
+                <input type="password" id="signup-password" name="signup-password" required>
+
+                <button type="submit">Sign Up</button>
+            </form>
+
+            <form id="login-form" style="display: none;">
+                <label for="login-username">Username/Email:</label>
+                <input type="text" id="login-username" name="login-username" required>
+
+                <label for="login-password">Password:</label>
+                <input type="password" id="login-password" name="login-password" required>
+
+                <button type="submit">Log In</button>
+            </form>
+
+            <div class="switch-form">
+                <span id="form-toggle-text">Already have an account?</span> <a href="#" id="form-toggle">Log In</a>
+            </div>
+        </div>
+
+        <footer id="footer">
+            <ul class="icons">
+                <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                <li><a href="#" class="icon brands fa-envelope"><span class="label">Email</span></a></li>
+            </ul>
+            <ul class="copyright">
+                <li>&copy; TicketHub. All rights reserved.</li>
+            </ul>
+        </footer>
+    </div>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        //... (JavaScript code from previous responses)...
+    </script>
+</body>
+</html>
