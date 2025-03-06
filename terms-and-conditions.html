@@ -5,8 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms and Conditions - EastRandTix</title>
     <link rel="stylesheet" href="assets/css/main.css"> <!-- Link to your CSS file -->
+    <script>
+        function toggleSection(id) {
+            var section = document.getElementById(id);
+            if (section.style.display === "none") {
+                section.style.display = "block";
+            } else {
+                section.style.display = "none";
+            }
+        }
+        function topFunction() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+    </script>
+    <style>
+        .toggle-btn {
+            cursor: pointer;
+            color: blue;
+            text-decoration: underline;
+        }
+        #topBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: none;
+        }
+    </style>
 </head>
-<body>
+<body onscroll="document.getElementById('topBtn').style.display = 'block'">
     <header>
         <h1>Terms and Conditions</h1>
         <p><strong>Effective Date:</strong> [Insert Date]</p>
@@ -15,11 +46,21 @@
     
     <main>
         <section>
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><span class="toggle-btn" onclick="toggleSection('acceptance')">1. Acceptance of Terms</span></li>
+                <li><span class="toggle-btn" onclick="toggleSection('purchases')">2. Ticket Purchases & Refund Policy</span></li>
+                <li><span class="toggle-btn" onclick="toggleSection('accounts')">3. User Accounts</span></li>
+                <li><span class="toggle-btn" onclick="toggleSection('entry')">4. Event Entry & Conduct</span></li>
+            </ul>
+        </section>
+
+        <section id="acceptance">
             <h2>1. Acceptance of Terms</h2>
             <p>By accessing or using EastRandTix, you acknowledge that you have read, understood, and agreed to these Terms and Conditions, as well as our Privacy Policy.</p>
         </section>
 
-        <section>
+        <section id="purchases" style="display:none;">
             <h2>2. Ticket Purchases & Refund Policy</h2>
             <ul>
                 <li>All ticket sales are final and non-refundable, except where required by law.</li>
@@ -28,47 +69,19 @@
             </ul>
         </section>
 
-        <section>
+        <section id="accounts" style="display:none;">
             <h2>3. User Accounts</h2>
             <p>To purchase tickets, you may need to create an account and provide accurate information. You are responsible for your account security.</p>
         </section>
 
-        <section>
+        <section id="entry" style="display:none;">
             <h2>4. Event Entry & Conduct</h2>
             <p>Event organizers may enforce their own entry policies, including ID verification and security screenings. Disruptive behavior may result in removal without refund.</p>
         </section>
-
-        <section>
-            <h2>5. Pricing & Fees</h2>
-            <p>Ticket prices are set by event organizers and may include service fees. Prices are subject to change before purchase confirmation.</p>
-        </section>
-
-        <section>
-            <h2>6. Limitation of Liability</h2>
-            <p>EastRandTix is not responsible for losses, injuries, or damages incurred at events.</p>
-        </section>
-
-        <section>
-            <h2>7. Prohibited Activities</h2>
-            <p>Users may not use bots to purchase tickets unfairly, resell tickets at inflated prices, or engage in fraudulent activities.</p>
-        </section>
-
-        <section>
-            <h2>8. Intellectual Property</h2>
-            <p>All content on the Site, including logos and text, is owned by EastRandTix or event organizers and may not be used without permission.</p>
-        </section>
-
-        <section>
-            <h2>9. Changes to Terms</h2>
-            <p>EastRandTix reserves the right to modify these Terms at any time. Continued use of our services constitutes acceptance of the revised Terms.</p>
-        </section>
-
-        <section>
-            <h2>10. Contact Information</h2>
-            <p>For any questions, please contact us at <a href="mailto:support@eastrandtix.com">support@eastrandtix.com</a>.</p>
-        </section>
     </main>
 
+    <button id="topBtn" onclick="topFunction()">Back to Top</button>
+    
     <footer>
         <p>&copy; 2025 EastRandTix. All rights reserved.</p>
     </footer>
